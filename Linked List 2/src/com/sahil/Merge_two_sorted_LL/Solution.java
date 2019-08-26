@@ -14,6 +14,7 @@ class LinkedListNode<T> {
 
 public class Solution {
 
+	@SuppressWarnings("unused")
 	public static LinkedListNode<Integer> mergeTwoList(LinkedListNode<Integer> head1, LinkedListNode<Integer> head2) {
           
         LinkedListNode<Integer> t1=head1;

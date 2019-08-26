@@ -4,11 +4,17 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
  class QueueEmptyException extends Exception {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	 
 }
 
  class QueueUsingLL<T> {
 
+	@SuppressWarnings("hiding")
 	class Node<T> {
 		T data;
 		Node<T> next;

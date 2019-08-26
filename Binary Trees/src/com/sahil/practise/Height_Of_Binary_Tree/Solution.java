@@ -14,13 +14,9 @@ public class Solution {
 		}
 	}
 	*/
-	public static int height(BinaryTreeNode<Integer> root) {
-		/* Your class should be named Solution
-		* Don't write main().
-		* Don't read input, it is passed as function argument.
-		* Return output and don't print it.
-		* Taking input and printing output is handled automatically.
-		*/
+    
+   public static int height(BinaryTreeNode<Integer> root) {
+		
 		int height=1;
         if(root==null)
         {
@@ -47,6 +43,40 @@ public class Solution {
       
         
 	}
+    
+   
+    
+	public static boolean checkBalanced(BinaryTreeNode<Integer> root){
+		
+		// Write your code here
+        boolean ans=false;
+        if(root==null)
+        {
+            ans=true;
+            return ans;
+        }
+        
+        int leftDepth=0,rightDepth=0;
+        leftDepth=height(root.left);
+        rightDepth=height(root.right);
+         
+        
+        if((Math.abs(leftDepth-rightDepth))<=1)
+        {
+            boolean a=checkBalanced(root.left);
+            boolean b=checkBalanced(root.right);
+            if(a && b)
+            {
+                ans=true;
+                return ans;
+            }
+            
+        }
+        
+    
+            return ans;
+    }
 	
 }
+
 

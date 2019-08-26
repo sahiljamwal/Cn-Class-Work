@@ -1,60 +1,47 @@
 package com.sahil.practise.kReverse;
 
-import java.util.Stack;
 
+/*
+class LinkedListNode<T> {
+	public T data;
+	public LinkedListNode<T> next;
+
+	public LinkedListNode(T data) {
+		this.setData(data);
+		this.next = null;
+	}
+
+	public T getData() {
+		return data;
+	}
+
+	public void setData(T data) {
+		this.data = data;
+	}
+
+}
+* */
 public class Solution {
-    
-      
-    
-    
-   
-    private static int getLength(LinkedListNode<Integer> head) {
-    		int length=1;
-    		LinkedListNode<Integer> temp=head;
-    	while(temp!=null)
-    	{
-    		temp=temp.next;
-    		length++;
-    	}
-    	return length-1;
-    }
-    
-	public static LinkedListNode<Integer> kReverse(LinkedListNode<Integer> head, int k) {
+	public static LinkedListNode<Integer> kReverse(LinkedListNode<Integer> head, int k) 
+    {
+        LinkedListNode<Integer> p=null;
+        LinkedListNode<Integer> c=head;
+        LinkedListNode<Integer> n=null;
         
-		LinkedListNode<Integer> temp=head;
-		LinkedListNode<Integer> newhead=null;
-		LinkedListNode<Integer> newtail=null;
-		int counter=1;
-		while(counter!=getLength(head))
-		{
-			Stack<LinkedListNode<Integer>> stack=new Stack<>();
-			int count=0;
-			while(count<k)
-			{
-				stack.push(temp);
-				if(temp!=null)
-					temp=temp.next;
-				
-				count++;
-			}
-			if(counter<k)
-				newhead=stack.peek();
-			LinkedListNode<Integer> temp1=stack.pop();
-			while(!stack.isEmpty())
-			{
-				newtail=temp1;
-				temp1.next=stack.pop();
-				temp1=temp1.next;
-			}
-			counter=count;
-			counter++;
-			
-			
-		}
-		
-		return newhead;
+        int count=0;
+        while(count<k && c!=null)
+        {
+            n=c.next;
+            c.next=p;
+            p=c;
+            c=n;
+                
+            count++;
+        }
+        if(n!=null)   
+            head.next=kReverse(n,k);
+        
+        return p;
         
     }
-
-	
 }
