@@ -1,8 +1,7 @@
-package com.sahil.practise.Pair_sum_BInary_Tree;
+package com.sahil.practise.Pair_sum_in_a_BST;
 
 import java.util.Arrays;
 import java.util.ArrayList;
-
 public class Solution {
 
 /*	Binary Tree Node class
@@ -17,7 +16,7 @@ public class Solution {
 		}
 	}
 	*/
-    
+
     private static ArrayList<Integer> arr=new ArrayList<Integer>();
     private static int index=0;
     
@@ -35,15 +34,11 @@ public class Solution {
             return;
          
        }
-       
-        
-        
-       
-        
     }
 
-	public static void nodesSumToS(BinaryTreeNode<Integer> root, int sum) {
+	public static void printNodesSumToS(BinaryTreeNode<Integer> root, int s) {
 		// Write your code here
+        
         fillArray(root);
         
         int array[]=new int[arr.size()];
@@ -57,18 +52,18 @@ public class Solution {
         
         
         int start=0,end=array.length-1;
-        while(start<=end)
+        while(start<end)
         //for(int i=0;i<array.length;i++)
         {
             
-             if(array[start]+array[end]==sum)
+             if(array[start]+array[end]==s)
             {
                 System.out.println(array[start]+" "+array[end]);
                 start++;
                 end--;
             }
             
-            else if(array[start]+array[end]>sum)
+            else if(array[start]+array[end]>s)
             {
                 end--;
                 
@@ -78,5 +73,6 @@ public class Solution {
                 start++;
             }
         }
+
 	}
 }
